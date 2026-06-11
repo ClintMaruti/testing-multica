@@ -8,6 +8,10 @@ const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
 app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:80', 'http://localhost'] }));
 app.use(express.json());
 
+app.get('/health', (_req: Request, res: Response) => {
+  res.json({ status: 'ok' });
+});
+
 app.use('/puzzle', puzzleRouter);
 
 // 404 handler
