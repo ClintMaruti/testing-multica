@@ -1,0 +1,68 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 48px;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2e7d32;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0 0 24px;
+}
+
+.time {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3949ab;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  background: #3949ab;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn:hover {
+  background-color: #303f9f;
+}

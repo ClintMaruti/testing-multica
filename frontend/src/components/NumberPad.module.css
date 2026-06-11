@@ -1,0 +1,40 @@
+.pad {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.btn {
+  width: clamp(36px, 8vw, 52px);
+  height: clamp(36px, 8vw, 52px);
+  font-size: clamp(14px, 2.5vw, 20px);
+  font-weight: 600;
+  border: 2px solid #5c6bc0;
+  border-radius: 6px;
+  background: #fff;
+  color: #3949ab;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #e8eaf6;
+  transform: scale(1.05);
+}
+
+.btn:active:not(:disabled) {
+  background-color: #c5cae9;
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  border-color: #bbb;
+  color: #888;
+}

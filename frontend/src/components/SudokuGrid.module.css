@@ -1,0 +1,78 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: 100%;
+  max-width: min(540px, 95vw);
+  aspect-ratio: 1;
+  border: 3px solid #333;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(12px, 2.8vw, 22px);
+  font-weight: 500;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.1s;
+  color: #1a1a2e;
+  box-sizing: border-box;
+  aspect-ratio: 1;
+  outline: none;
+}
+
+/* 3×3 subgrid borders — right borders */
+.cell:nth-child(3n) {
+  border-right: 3px solid #333;
+}
+/* last column has the outer border, not a thick border */
+.cell:nth-child(9n) {
+  border-right: 1px solid #bbb;
+}
+
+/* 3×3 subgrid borders — bottom borders (rows 3 and 6) */
+/* rows 3 and 6 = grid row indices 2 and 5 (0-based) */
+/* cells 19–27 are row 3, cells 46–54 are row 6 */
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+  border-bottom: 3px solid #333;
+}
+
+.cell.prefilled {
+  font-weight: 700;
+  color: #0d0d2b;
+}
+
+.cell.invalid {
+  color: #e53935;
+  background-color: #fde8e8;
+}
+
+.cell.selected {
+  background-color: #bbdefb;
+  z-index: 1;
+}
+
+.cell.highlighted {
+  background-color: #e3f2fd;
+}
+
+.cell.complete {
+  background-color: #e8f5e9;
+}
+
+.cell.selected.invalid {
+  background-color: #ffcdd2;
+}
+
+.cell:hover:not(.prefilled) {
+  background-color: #e8eaf6;
+}
+
+.cell.selected:hover {
+  background-color: #bbdefb;
+}
