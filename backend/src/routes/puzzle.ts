@@ -38,8 +38,8 @@ function parseBoardParam(raw: unknown): number[][] | null {
   return raw as number[][];
 }
 
-router.get('/validate', (req: Request, res: Response) => {
-  const rawBoard = req.query.board ?? req.body?.board;
+router.post('/validate', (req: Request, res: Response) => {
+  const rawBoard = req.body?.board;
 
   const board = parseBoardParam(rawBoard);
   if (!board) {

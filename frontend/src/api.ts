@@ -16,11 +16,11 @@ export async function generatePuzzle(difficulty: Difficulty): Promise<number[][]
 
 export async function validateSolution(solution: number[][]): Promise<boolean> {
   const res = await fetch(`${BASE_URL}/puzzle/validate`, {
-    method: 'GET',
+    method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ solution }),
+    body: JSON.stringify({ board: solution }),
   });
   if (!res.ok) return false;
   const data = await res.json();
-  return data.valid === true || data.success === true;
+  return data.valid === true;
 }
