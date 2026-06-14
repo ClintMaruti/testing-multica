@@ -51,7 +51,7 @@ npm run test
 ## Running with Docker Compose
 
 ```bash
-docker compose up
+docker compose up --build
 ```
 
 This starts both services:
